@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<div id="content">
+<script src="lib/amcharts_3.4.5/amcharts/amcharts.js" type="text/javascript"></script><script src="lib/amcharts_3.4.5/amcharts/pie.js" type="text/javascript"></script><h2>Précisez votre objectif calories</h2>
+<p>Objectif : <input type="number" min="0" max="9999" value="2000" style="width:4em" id="besoincalories" onkeyup="TabCalDisp(1,0,0,0,1,0);MenuDisp()"> kcal
+ &nbsp; <a href="besoin-en-calories.htm" class="nowrap"><i class="fas fa-calculator fa-fw"></i>Calculer mes besoins en calories</a></p>
+<h2>Sélectionnez vos aliments</h2>
+<ul class="catlist">
+<li><a href="javascript:TabCalDisp(1,0,0,0,1,0)"><i class="fas fa-steak fa-fw" style="color:#C9727B"></i>Viandes &amp; Œufs</a></li>
+<li><a href="javascript:TabCalDisp(2,0,0,0,1,0)"><i class="fas fa-fish-cooked fa-fw" style="color:#5483BB"></i>Poissons</a></li>
+<li><a href="javascript:TabCalDisp(3,0,0,0,1,0)"><i class="fas fa-salad fa-fw" style="color:#629944"></i>Légumes</a></li>
+<li><a href="javascript:TabCalDisp(4,0,0,0,1,0)"><i class="fas fa-wheat fa-fw" style="color:#E6CC75"></i>Accompagnements</a></li>
+<li><a href="javascript:TabCalDisp(5,0,0,0,1,0)"><i class="fas fa-wine-bottle fa-fw" style="color:#BF4830"></i>Assaiso&amp;Sauces</a></li>
+<li><a href="javascript:TabCalDisp(11,0,0,0,1,0)"><i class="fas fa-book fa-fw" style="color:#999"></i>Recettes</a></li>
+<li><a href="javascript:TabCalDisp(6,0,0,0,1,0)"><i class="fas fa-cheese-swiss fa-fw" style="color:#F9CB5F"></i>Fromages</a></li>
+<li><a href="javascript:TabCalDisp(7,0,0,0,1,0)"><i class="fas fa-apple-alt fa-fw" style="color:#DF6564"></i>Fruits</a></li>
+<li><a href="javascript:TabCalDisp(8,0,0,0,1,0)"><i class="fas fa-pie fa-fw" style="color:#E3AE90"></i>Desserts</a></li>
+<li><a href="javascript:TabCalDisp(9,0,0,0,1,0)"><i class="fas fa-glass fa-fw" style="color:#7CBBE6"></i>Boissons</a></li>
+<li><a href="javascript:TabCalDisp(10,0,0,0,1,0)"><i class="fas fa-croissant fa-fw" style="color:#E5954A"></i>Petit déjeuner, Goûter</a></li>
+</ul>
+<div style="margin:20px 0 0">
+<div id="tabcal">
+	<div class="tcal-list tcal-scroll" style="height:235px" id="tabscroll">
+		<div class="tcal tcal-head">
+			<table cellspacing="0">
+				<tbody>
+					<tr>
+						<td onclick="TabCalDisp('1','0',1,2,1,0)" onmouseover="this.id='lighttitle'" onmouseout="this.id=''">
+							<strong>Aliments</strong>
+							 <i class="fas fa-sort-down"></i>
+							</td>
+							<td onclick="TabCalDisp('1','0',8,2,1,0)" onmouseover="this.id='lighttitle'" onmouseout="this.id=''">
+								<strong>Quantité</strong>
+							</td>
+							<td onclick="TabCalDisp('1','0','10',2,1,0)" onmouseover="this.id='lighttitle'" onmouseout="this.id=''">
+								<strong>Cal<span>ories
+								</span>
+							</strong>
+						</td>
+						<td onclick="TabCalDisp('1','0','11',2,1,0)" onmouseover="this.id='lighttitle'" onmouseout="this.id=''">
+							<strong onmouseover="OverPerc()" onmouseout="HideTrail()">Pro<span>tides</span>
+							</strong></td><td onclick="TabCalDisp('1','0','12',2,1,0)" onmouseover="this.id='lighttitle'" onmouseout="this.id=''">
+								<strong onmouseover="OverPerc()" onmouseout="HideTrail()">Lip<span>ides</span></strong>
+							</td>
+							<td onclick="TabCalDisp('1','0','13',2,1,0)" onmouseover="this.id='lighttitle'" onmouseout="this.id=''">
+								<strong onmouseover="OverPerc()" onmouseout="HideTrail()">Glu<span>cides</span></strong>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="tcal tcal-body">
+				<table cellspacing="0" onmouseover="tOver(0)" onmouseout="tOut(0)">
+					<tbody>
+						<tr onclick="addToBasket('A-1','SelectAlim','SData(1,1)')">
+							<td>
+								<span id="A-1">Abats</span>
+							</td>
+							<td>portion 150g</td>
+							<td>
+								<div class="ty">
+									<div class="c1" style="width:9%">
+									</div>
+								</div>9%</td>
+								<td>
+									<div class="ty">
+										<div class="c2" style="width:35%">
+										</div></div>35%</td>
+										<td>
+											<div class="ty">
+												<div class="c3" style="width:13%">
+												</div></div>13%</td><td>-</td>
+											</tr>
+											<tr onclick="addToBasket('A-2','SelectAlim','SData(2,1)')">
+												<td>
+													<span id="A-2">Agneau - Carré</span>
+												</td>
+												<td>portion 150g</td>
+												<td>
+													<div class="ty">
+														<div class="c1" style="width:16%"></div>
+													</div>16%</td>
+													<td>
+														<div class="ty">
+															<div class="c2" style="width:31%">
+															</div>
+														</div>31%</td>
+														<td>
+															<div class="ty">
+																<div class="c3" style="width:37%">
+																</div></div>37%</td><td>-</td>
+															</tr>
+															<tr onclick="addToBasket('A-3','SelectAlim','SData(3,1)')">
+																<td>
+																	<span id="A-3">Agneau - Cote</span>
+																</td>
+																<td>unite 50g</td>
+																<td>
+																	<div class="ty">
+																		<div class="c1" style="width:5%">
+																		</div>
+																	</div>5%</td>
+																	<td>
+																		<div class="ty">
+																			<div class="c2" style="width:10%">
+																			</div></div>10%</td>
+																			<td>
+																				<div class="ty"><div class="c3" style="width:12%">
+																				</div></div>12%</td><td>-</td>
+																			</tr>
+																			<tr onclick="addToBasket('A-455','SelectAlim','SData(455,1)')">
+																				<td>
+																					<span id="A-455">Agneau - Foie</span>
+																				</td>
+																				<td>portion 150g</td>
+																				<td><div class="ty">
+																					<div class="c1" style="width:10%">
+																					</div>
+																				</div>10%</td>
+																				<td>
+																					<div class="ty">
+																						<div class="c2" style="width:43%"></div>
+																					</div>43%</td>
+																					<td>
+																						<div class="ty">
+																							<div class="c3" style="width:11%">
+																							</div>
+																						</div>11%</td>
+																						<td><div class="ty">
+																							<div class="c4" style="width:1%">
+																							</div></div>1%</td></tr><tr onclick="addToBasket('A-5','SelectAlim','SData(5,1)')"><td><span id="A-5">Agneau - Gigot</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:17%"></div></div>17%</td><td><div class="ty"><div class="c2" style="width:36%"></div></div>36%</td><td><div class="ty"><div class="c3" style="width:39%"></div></div>39%</td><td>-</td></tr><tr onclick="addToBasket('A-4','SelectAlim','SData(4,1)')"><td><span id="A-4">Agneau - Épaule</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:22%"></div></div>22%</td><td><div class="ty"><div class="c2" style="width:32%"></div></div>32%</td><td><div class="ty"><div class="c3" style="width:57%"></div></div>57%</td><td>-</td></tr><tr onclick="addToBasket('A-481','SelectAlim','SData(481,1)')"><td><span id="A-481">Andouille</span></td><td>tranche 10g</td><td><div class="ty"><div class="c1" style="width:1%"></div></div>1%</td><td><div class="ty"><div class="c2" style="width:3%"></div></div>3%</td><td><div class="ty"><div class="c3" style="width:2%"></div></div>2%</td><td>-</td></tr><tr onclick="addToBasket('A-6','SelectAlim','SData(6,1)')"><td><span id="A-6">Andouillette</span></td><td>unite 150g</td><td><div class="ty"><div class="c1" style="width:18%"></div></div>18%</td><td><div class="ty"><div class="c2" style="width:36%"></div></div>36%</td><td><div class="ty"><div class="c3" style="width:40%"></div></div>40%</td><td>-</td></tr><tr onclick="addToBasket('A-7','SelectAlim','SData(7,1)')"><td><span id="A-7">Bacon fumé</span></td><td>tranche 10g</td><td><div class="ty"><div class="c1" style="width:1%"></div></div>1%</td><td><div class="ty"><div class="c2" style="width:3%"></div></div>3%</td><td><div class="ty"><div class="c3" style="width:1%"></div></div>1%</td><td>-</td></tr><tr onclick="addToBasket('A-8','SelectAlim','SData(8,1)')"><td><span id="A-8">Boeuf - Aloyau</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:14%"></div></div>14%</td><td><div class="ty"><div class="c2" style="width:40%"></div></div>40%</td><td><div class="ty"><div class="c3" style="width:25%"></div></div>25%</td><td>-</td></tr><tr onclick="addToBasket('A-9','SelectAlim','SData(9,1)')"><td><span id="A-9">Boeuf - Bavette</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:11%"></div></div>11%</td><td><div class="ty"><div class="c2" style="width:56%"></div></div>56%</td><td><div class="ty"><div class="c3" style="width:9%"></div></div>9%</td><td>-</td></tr><tr onclick="addToBasket('A-10','SelectAlim','SData(10,1)')"><td><span id="A-10">Boeuf - Carpaccio + huile</span></td><td>portion 120g</td><td><div class="ty"><div class="c1" style="width:17%"></div></div>17%</td><td><div class="ty"><div class="c2" style="width:36%"></div></div>36%</td><td><div class="ty"><div class="c3" style="width:39%"></div></div>39%</td><td>-</td></tr><tr onclick="addToBasket('A-11','SelectAlim','SData(11,1)')"><td><span id="A-11">Boeuf - Côte</span></td><td>portion 200g</td><td><div class="ty"><div class="c1" style="width:26%"></div></div>26%</td><td><div class="ty"><div class="c2" style="width:45%"></div></div>45%</td><td><div class="ty"><div class="c3" style="width:63%"></div></div>63%</td><td>-</td></tr><tr onclick="addToBasket('A-12','SelectAlim','SData(12,1)')"><td><span id="A-12">Boeuf - Entrecôte</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:14%"></div></div>14%</td><td><div class="ty"><div class="c2" style="width:40%"></div></div>40%</td><td><div class="ty"><div class="c3" style="width:25%"></div></div>25%</td><td>-</td></tr><tr onclick="addToBasket('A-13','SelectAlim','SData(13,1)')"><td><span id="A-13">Boeuf - Faux-filet</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:14%"></div></div>14%</td><td><div class="ty"><div class="c2" style="width:40%"></div></div>40%</td><td><div class="ty"><div class="c3" style="width:25%"></div></div>25%</td><td>-</td></tr><tr onclick="addToBasket('A-456','SelectAlim','SData(456,1)')"><td><span id="A-456">Boeuf - Foie</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:10%"></div></div>10%</td><td><div class="ty"><div class="c2" style="width:43%"></div></div>43%</td><td><div class="ty"><div class="c3" style="width:9%"></div></div>9%</td><td><div class="ty"><div class="c4" style="width:2%"></div></div>2%</td></tr><tr onclick="addToBasket('A-14','SelectAlim','SData(14,1)')"><td><span id="A-14">Boeuf - Onglet</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:11%"></div></div>11%</td><td><div class="ty"><div class="c2" style="width:56%"></div></div>56%</td><td><div class="ty"><div class="c3" style="width:9%"></div></div>9%</td><td>-</td></tr><tr onclick="addToBasket('A-16','SelectAlim','SData(16,1)')"><td><span id="A-16">Boeuf - Rumsteck</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:14%"></div></div>14%</td><td><div class="ty"><div class="c2" style="width:40%"></div></div>40%</td><td><div class="ty"><div class="c3" style="width:25%"></div></div>25%</td><td>-</td></tr><tr onclick="addToBasket('A-15','SelectAlim','SData(15,1)')"><td><span id="A-15">Boeuf - Rôti</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:11%"></div></div>11%</td><td><div class="ty"><div class="c2" style="width:56%"></div></div>56%</td><td><div class="ty"><div class="c3" style="width:9%"></div></div>9%</td><td>-</td></tr><tr onclick="addToBasket('A-17','SelectAlim','SData(17,1)')"><td><span id="A-17">Boeuf - Steak</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:11%"></div></div>11%</td><td><div class="ty"><div class="c2" style="width:56%"></div></div>56%</td><td><div class="ty"><div class="c3" style="width:9%"></div></div>9%</td><td>-</td></tr><tr onclick="addToBasket('A-18','SelectAlim','SData(18,1)')"><td><span id="A-18">Boeuf - Steak haché 15%</span></td><td>unite 125g</td><td><div class="ty"><div class="c1" style="width:13%"></div></div>13%</td><td><div class="ty"><div class="c2" style="width:31%"></div></div>31%</td><td><div class="ty"><div class="c3" style="width:28%"></div></div>28%</td><td>-</td></tr><tr onclick="addToBasket('A-19','SelectAlim','SData(19,1)')"><td><span id="A-19">Boeuf - Steak haché 5%</span></td><td>unite 125g</td><td><div class="ty"><div class="c1" style="width:8%"></div></div>8%</td><td><div class="ty"><div class="c2" style="width:35%"></div></div>35%</td><td><div class="ty"><div class="c3" style="width:9%"></div></div>9%</td><td>-</td></tr><tr onclick="addToBasket('A-20','SelectAlim','SData(20,1)')"><td><span id="A-20">Boudin antillais</span></td><td>unite 60g</td><td><div class="ty"><div class="c1" style="width:10%"></div></div>10%</td><td><div class="ty"><div class="c2" style="width:9%"></div></div>9%</td><td><div class="ty"><div class="c3" style="width:27%"></div></div>27%</td><td><div class="ty"><div class="c4" style="width:1%"></div></div>1%</td></tr><tr onclick="addToBasket('A-21','SelectAlim','SData(21,1)')"><td><span id="A-21">Boudin blanc</span></td><td>unite 120g</td><td><div class="ty"><div class="c1" style="width:11%"></div></div>11%</td><td><div class="ty"><div class="c2" style="width:16%"></div></div>16%</td><td><div class="ty"><div class="c3" style="width:24%"></div></div>24%</td><td><div class="ty"><div class="c4" style="width:3%"></div></div>3%</td></tr><tr onclick="addToBasket('A-22','SelectAlim','SData(22,1)')"><td><span id="A-22">Boudin noir</span></td><td>unite 120g</td><td><div class="ty"><div class="c1" style="width:19%"></div></div>19%</td><td><div class="ty"><div class="c2" style="width:17%"></div></div>17%</td><td><div class="ty"><div class="c3" style="width:54%"></div></div>54%</td><td><div class="ty"><div class="c4" style="width:1%"></div></div>1%</td></tr><tr onclick="addToBasket('A-23','SelectAlim','SData(23,1)')"><td><span id="A-23">Caille</span></td><td>unite 80g</td><td><div class="ty"><div class="c1" style="width:6%"></div></div>6%</td><td><div class="ty"><div class="c2" style="width:21%"></div></div>21%</td><td><div class="ty"><div class="c3" style="width:11%"></div></div>11%</td><td>-</td></tr><tr onclick="addToBasket('A-24','SelectAlim','SData(24,1)')"><td><span id="A-24">Canard</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:13%"></div></div>13%</td><td><div class="ty"><div class="c2" style="width:40%"></div></div>40%</td><td><div class="ty"><div class="c3" style="width:22%"></div></div>22%</td><td>-</td></tr><tr onclick="addToBasket('A-26','SelectAlim','SData(26,1)')"><td><span id="A-26">Canard - Magret</span></td><td>unite 300g</td><td><div class="ty"><div class="c1" style="width:26%"></div></div>26%</td><td><div class="ty"><div class="c2" style="width:80%"></div></div>80%</td><td><div class="ty"><div class="c3" style="width:45%"></div></div>45%</td><td>-</td></tr><tr onclick="addToBasket('A-27','SelectAlim','SData(27,1)')"><td><span id="A-27">Chair à saucisse</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:24%"></div></div>24%</td><td><div class="ty"><div class="c2" style="width:27%"></div></div>27%</td><td><div class="ty"><div class="c3" style="width:67%"></div></div>67%</td><td>-</td></tr><tr onclick="addToBasket('A-28','SelectAlim','SData(28,1)')"><td><span id="A-28">Chapon</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:17%"></div></div>17%</td><td><div class="ty"><div class="c2" style="width:35%"></div></div>35%</td><td><div class="ty"><div class="c3" style="width:40%"></div></div>40%</td><td>-</td></tr><tr onclick="addToBasket('A-29','SelectAlim','SData(29,1)')"><td><span id="A-29">Chipolata</span></td><td>unite 60g</td><td><div class="ty"><div class="c1" style="width:10%"></div></div>10%</td><td><div class="ty"><div class="c2" style="width:11%"></div></div>11%</td><td><div class="ty"><div class="c3" style="width:27%"></div></div>27%</td><td>-</td></tr><tr onclick="addToBasket('A-445','SelectAlim','SData(445,1)')"><td><span id="A-445">Chorizo</span></td><td>portion 40g</td><td><div class="ty"><div class="c1" style="width:10%"></div></div>10%</td><td><div class="ty"><div class="c2" style="width:11%"></div></div>11%</td><td><div class="ty"><div class="c3" style="width:27%"></div></div>27%</td><td><div class="ty"><div class="c4" style="width:1%"></div></div>1%</td></tr><tr onclick="addToBasket('A-449','SelectAlim','SData(449,1)')"><td><span id="A-449">Coppa</span></td><td>tranche 8g</td><td><div class="ty"><div class="c1" style="width:1%"></div></div>1%</td><td><div class="ty"><div class="c2" style="width:3%"></div></div>3%</td><td><div class="ty"><div class="c3" style="width:2%"></div></div>2%</td><td>-</td></tr><tr onclick="addToBasket('A-30','SelectAlim','SData(30,1)')"><td><span id="A-30">Dinde - Escalope</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:9%"></div></div>9%</td><td><div class="ty"><div class="c2" style="width:44%"></div></div>44%</td><td><div class="ty"><div class="c3" style="width:9%"></div></div>9%</td><td>-</td></tr><tr onclick="addToBasket('A-31','SelectAlim','SData(31,1)')"><td><span id="A-31">Figatelli</span></td><td>portion 40g</td><td><div class="ty"><div class="c1" style="width:7%"></div></div>7%</td><td><div class="ty"><div class="c2" style="width:8%"></div></div>8%</td><td><div class="ty"><div class="c3" style="width:18%"></div></div>18%</td><td>-</td></tr><tr onclick="addToBasket('A-32','SelectAlim','SData(32,1)')"><td><span id="A-32">Foie Gras</span></td><td>portion 40g</td><td><div class="ty"><div class="c1" style="width:9%"></div></div>9%</td><td><div class="ty"><div class="c2" style="width:5%"></div></div>5%</td><td><div class="ty"><div class="c3" style="width:28%"></div></div>28%</td><td>-</td></tr><tr onclick="addToBasket('A-459','SelectAlim','SData(459,1)')"><td><span id="A-459">Foie de volailles</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:10%"></div></div>10%</td><td><div class="ty"><div class="c2" style="width:39%"></div></div>39%</td><td><div class="ty"><div class="c3" style="width:14%"></div></div>14%</td><td>-</td></tr><tr onclick="addToBasket('A-421','SelectAlim','SData(421,1)')"><td><span id="A-421">Grenouille</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:5%"></div></div>5%</td><td><div class="ty"><div class="c2" style="width:33%"></div></div>33%</td><td><div class="ty"><div class="c3" style="width:1%"></div></div>1%</td><td>-</td></tr><tr onclick="addToBasket('A-33','SelectAlim','SData(33,1)')"><td><span id="A-33">Jambon cru</span></td><td>tranche 50g</td><td><div class="ty"><div class="c1" style="width:6%"></div></div>6%</td><td><div class="ty"><div class="c2" style="width:16%"></div></div>16%</td><td><div class="ty"><div class="c3" style="width:11%"></div></div>11%</td><td>-</td></tr><tr onclick="addToBasket('A-34','SelectAlim','SData(34,1)')"><td><span id="A-34">Jambon cuit</span></td><td>tranche 30g</td><td><div class="ty"><div class="c1" style="width:2%"></div></div>2%</td><td><div class="ty"><div class="c2" style="width:7%"></div></div>7%</td><td><div class="ty"><div class="c3" style="width:3%"></div></div>3%</td><td>-</td></tr><tr onclick="addToBasket('A-35','SelectAlim','SData(35,1)')"><td><span id="A-35">Jambonneau</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:13%"></div></div>13%</td><td><div class="ty"><div class="c2" style="width:40%"></div></div>40%</td><td><div class="ty"><div class="c3" style="width:22%"></div></div>22%</td><td>-</td></tr><tr onclick="addToBasket('A-36','SelectAlim','SData(36,1)')"><td><span id="A-36">Lapin</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:10%"></div></div>10%</td><td><div class="ty"><div class="c2" style="width:44%"></div></div>44%</td><td><div class="ty"><div class="c3" style="width:11%"></div></div>11%</td><td>-</td></tr><tr onclick="addToBasket('A-37','SelectAlim','SData(37,1)')"><td><span id="A-37">Lard</span></td><td>tranche 30g</td><td><div class="ty"><div class="c1" style="width:10%"></div></div>10%</td><td><div class="ty"><div class="c2" style="width:4%"></div></div>4%</td><td><div class="ty"><div class="c3" style="width:31%"></div></div>31%</td><td>-</td></tr><tr onclick="addToBasket('A-38','SelectAlim','SData(38,1)')"><td><span id="A-38">Lardon</span></td><td>portion 50g</td><td><div class="ty"><div class="c1" style="width:7%"></div></div>7%</td><td><div class="ty"><div class="c2" style="width:12%"></div></div>12%</td><td><div class="ty"><div class="c3" style="width:18%"></div></div>18%</td><td>-</td></tr><tr onclick="addToBasket('A-39','SelectAlim','SData(39,1)')"><td><span id="A-39">Merguez</span></td><td>unite 60g</td><td><div class="ty"><div class="c1" style="width:10%"></div></div>10%</td><td><div class="ty"><div class="c2" style="width:13%"></div></div>13%</td><td><div class="ty"><div class="c3" style="width:27%"></div></div>27%</td><td>-</td></tr><tr onclick="addToBasket('A-40','SelectAlim','SData(40,1)')"><td><span id="A-40">Mortadelle</span></td><td>tranche 25g</td><td><div class="ty"><div class="c1" style="width:4%"></div></div>4%</td><td><div class="ty"><div class="c2" style="width:5%"></div></div>5%</td><td><div class="ty"><div class="c3" style="width:11%"></div></div>11%</td><td>-</td></tr><tr onclick="addToBasket('A-41','SelectAlim','SData(41,1)')"><td><span id="A-41">Oeuf</span></td><td>unite 50g</td><td><div class="ty"><div class="c1" style="width:4%"></div></div>4%</td><td><div class="ty"><div class="c2" style="width:9%"></div></div>9%</td><td><div class="ty"><div class="c3" style="width:8%"></div></div>8%</td><td>-</td></tr><tr onclick="addToBasket('A-42','SelectAlim','SData(42,1)')"><td><span id="A-42">Oeuf - Blanc d'</span></td><td>unite 30g</td><td><div class="ty"><div class="c1" style="width:1%"></div></div>1%</td><td><div class="ty"><div class="c2" style="width:4%"></div></div>4%</td><td>-</td><td>-</td></tr><tr onclick="addToBasket('A-43','SelectAlim','SData(43,1)')">
+																								<td><span id="A-43">Oeuf - Jaune d'</span></td><td>unite 20g</td><td><div class="ty"><div class="c1" style="width:4%"></div></div>4%</td><td><div class="ty"><div class="c2" style="width:4%"></div></div>4%</td><td><div class="ty"><div class="c3" style="width:10%"></div></div>10%</td><td>-</td></tr><tr onclick="addToBasket('A-44','SelectAlim','SData(44,1)')"><td><span id="A-44">Oeuf de caille</span></td><td>unite 10g</td><td><div class="ty"><div class="c1" style="width:1%"></div></div>1%</td><td><div class="ty"><div class="c2" style="width:2%"></div></div>2%</td><td><div class="ty"><div class="c3" style="width:2%"></div></div>2%</td><td>-</td></tr><tr onclick="addToBasket('A-48','SelectAlim','SData(48,1)')"><td><span id="A-48">Pigeon</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:10%"></div></div>10%</td><td><div class="ty"><div class="c2" style="width:47%"></div></div>47%</td><td><div class="ty"><div class="c3" style="width:9%"></div></div>9%</td><td>-</td></tr><tr onclick="addToBasket('A-49','SelectAlim','SData(49,1)')">
+																								<td><span id="A-49">Pintade</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:11%"></div></div>11%</td><td><div class="ty"><div class="c2" style="width:47%"></div></div>47%</td><td><div class="ty"><div class="c3" style="width:15%"></div></div>15%</td><td>-</td></tr><tr onclick="addToBasket('A-50','SelectAlim','SData(50,1)')"><td><span id="A-50">Porc - Côte</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:16%"></div></div>16%</td><td><div class="ty"><div class="c2" style="width:39%"></div></div>39%</td><td><div class="ty"><div class="c3" style="width:34%"></div></div>34%</td><td>-</td></tr><tr onclick="addToBasket('A-52','SelectAlim','SData(52,1)')">
+																								<td><span id="A-52">Porc - Filet mignon</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:9%"></div></div>9%</td><td><div class="ty"><div class="c2" style="width:43%"></div></div>43%</td><td><div class="ty"><div class="c3" style="width:7%"></div></div>7%</td><td>-</td></tr><tr onclick="addToBasket('A-457','SelectAlim','SData(457,1)')"><td><span id="A-457">Porc - Foie</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:10%"></div></div>10%</td><td><div class="ty"><div class="c2" style="width:43%"></div></div>43%</td><td><div class="ty"><div class="c3" style="width:11%"></div></div>11%</td><td><div class="ty"><div class="c4" style="width:1%"></div></div>1%</td></tr><tr onclick="addToBasket('A-53','SelectAlim','SData(53,1)')">
+																								<td><span id="A-53">Porc - Rôti</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:15%"></div></div>15%</td><td><div class="ty"><div class="c2" style="width:35%"></div></div>35%</td><td><div class="ty"><div class="c3" style="width:34%"></div></div>34%</td><td>-</td></tr><tr onclick="addToBasket('A-54','SelectAlim','SData(54,1)')"><td><span id="A-54">Porc - Travers</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:21%"></div></div>21%</td><td><div class="ty"><div class="c2" style="width:35%"></div></div>35%</td><td><div class="ty"><div class="c3" style="width:54%"></div></div>54%</td><td>-</td></tr><tr onclick="addToBasket('A-51','SelectAlim','SData(51,1)')">
+																								<td><span id="A-51">Porc - Échine</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:19%"></div></div>19%</td><td><div class="ty"><div class="c2" style="width:35%"></div></div>35%</td><td><div class="ty"><div class="c3" style="width:48%"></div></div>48%</td><td>-</td></tr><tr onclick="addToBasket('A-55','SelectAlim','SData(55,1)')"><td><span id="A-55">Poulet</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:13%"></div></div>13%</td><td><div class="ty"><div class="c2" style="width:40%"></div></div>40%</td><td><div class="ty"><div class="c3" style="width:22%"></div></div>22%</td><td>-</td></tr><tr onclick="addToBasket('A-56','SelectAlim','SData(56,1)')">
+																								<td><span id="A-56">Poulet - Blanc</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:8%"></div></div>8%</td><td><div class="ty"><div class="c2" style="width:43%"></div></div>43%</td><td><div class="ty"><div class="c3" style="width:3%"></div></div>3%</td><td><div class="ty"><div class="c4" style="width:1%"></div></div>1%</td></tr><tr onclick="addToBasket('A-45','SelectAlim','SData(45,1)')">
+																								<td><span id="A-45">Pâté de campagne</span></td><td>portion 50g</td><td><div class="ty"><div class="c1" style="width:8%"></div></div>8%</td><td><div class="ty"><div class="c2" style="width:9%"></div></div>9%</td><td><div class="ty"><div class="c3" style="width:22%"></div></div>22%</td><td><div class="ty"><div class="c4" style="width:1%"></div></div>1%</td></tr><tr onclick="addToBasket('A-46','SelectAlim','SData(46,1)')">
+																								<td><span id="A-46">Pâté de foie</span></td><td>portion 40g</td><td><div class="ty"><div class="c1" style="width:8%"></div></div>8%</td><td><div class="ty"><div class="c2" style="width:5%"></div></div>5%</td><td><div class="ty"><div class="c3" style="width:21%"></div></div>21%</td><td>-</td></tr><tr onclick="addToBasket('A-47','SelectAlim','SData(47,1)')">
+																								<td><span id="A-47">Pâté en croûte</span></td><td>portion 40g</td><td><div class="ty"><div class="c1" style="width:6%"></div></div>6%</td><td><div class="ty"><div class="c2" style="width:6%"></div></div>6%</td><td><div class="ty"><div class="c3" style="width:15%"></div></div>15%</td><td><div class="ty"><div class="c4" style="width:2%"></div></div>2%</td></tr><tr onclick="addToBasket('A-57','SelectAlim','SData(57,1)')">
+																								<td><span id="A-57">Rillettes</span></td><td>portion 50g</td><td><div class="ty"><div class="c1" style="width:11%"></div></div>11%</td><td><div class="ty"><div class="c2" style="width:10%"></div></div>10%</td><td><div class="ty"><div class="c3" style="width:31%"></div></div>31%</td><td>-</td></tr><tr onclick="addToBasket('A-527','SelectAlim','SData(527,1)')">
+																								<td><span id="A-527">Salami</span></td><td>portion 30g</td><td><div class="ty"><div class="c1" style="width:7%"></div></div>7%</td><td><div class="ty"><div class="c2" style="width:7%"></div></div>7%</td><td><div class="ty"><div class="c3" style="width:19%"></div></div>19%</td><td>-</td></tr><tr onclick="addToBasket('A-58','SelectAlim','SData(58,1)')">
+																								<td><span id="A-58">Saucisse de Francfort</span></td><td>unite 40g</td><td><div class="ty"><div class="c1" style="width:6%"></div></div>6%</td><td><div class="ty"><div class="c2" style="width:7%"></div></div>7%</td><td><div class="ty"><div class="c3" style="width:16%"></div></div>16%</td><td>-</td></tr><tr onclick="addToBasket('A-59','SelectAlim','SData(59,1)')">
+																								<td><span id="A-59">Saucisse de Montbéliard</span></td><td>unite 150g</td><td><div class="ty"><div class="c1" style="width:25%"></div></div>25%</td><td><div class="ty"><div class="c2" style="width:28%"></div></div>28%</td><td><div class="ty"><div class="c3" style="width:70%"></div></div>70%</td><td>-</td></tr><tr onclick="addToBasket('A-60','SelectAlim','SData(60,1)')">
+																								<td><span id="A-60">Saucisse de Morteau</span></td><td>unite 350g</td><td><div class="ty"><div class="c1" style="width:56%"></div></div>56%</td><td><div class="ty"><div class="c2" style="width:65%"></div></div>65%</td><td><div class="ty"><div class="c3" style="width:100%"></div></div>152%</td><td><div class="ty"><div class="c4" style="width:1%"></div></div>1%</td></tr><tr onclick="addToBasket('A-61','SelectAlim','SData(61,1)')">
+																								<td><span id="A-61">Saucisse de Toulouse</span></td><td>unite 100g</td><td><div class="ty"><div class="c1" style="width:16%"></div></div>16%</td><td><div class="ty"><div class="c2" style="width:19%"></div></div>19%</td><td><div class="ty"><div class="c3" style="width:45%"></div></div>45%</td><td>-</td></tr><tr onclick="addToBasket('A-62','SelectAlim','SData(62,1)')">
+																								<td><span id="A-62">Saucisson</span></td><td>tranche 5g</td><td><div class="ty"><div class="c1" style="width:1%"></div></div>1%</td><td><div class="ty"><div class="c2" style="width:2%"></div></div>2%</td><td><div class="ty"><div class="c3" style="width:3%"></div></div>3%</td><td>-</td></tr><tr onclick="addToBasket('A-64','SelectAlim','SData(64,1)')">
+																								<td><span id="A-64">Veau - Escalope</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:13%"></div></div>13%</td><td><div class="ty"><div class="c2" style="width:39%"></div></div>39%</td><td><div class="ty"><div class="c3" style="width:25%"></div></div>25%</td><td>-</td></tr><tr onclick="addToBasket('A-458','SelectAlim','SData(458,1)')">
+																								<td><span id="A-458">Veau - Foie</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:10%"></div></div>10%</td><td><div class="ty"><div class="c2" style="width:39%"></div></div>39%</td><td><div class="ty"><div class="c3" style="width:11%"></div></div>11%</td><td><div class="ty"><div class="c4" style="width:2%"></div></div>2%</td></tr><tr onclick="addToBasket('A-65','SelectAlim','SData(65,1)')">
+																								<td><span id="A-65">Veau - Jarret</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:14%"></div></div>14%</td><td><div class="ty"><div class="c2" style="width:39%"></div></div>39%</td><td><div class="ty"><div class="c3" style="width:27%"></div></div>27%</td><td>-</td></tr><tr onclick="addToBasket('A-66','SelectAlim','SData(66,1)')"><td><span id="A-66">Veau - Paupiette</span></td><td>unite 130g</td>
+																								<td><div class="ty"><div class="c1" style="width:22%"></div></div>22%</td><td><div class="ty"><div class="c2" style="width:21%"></div></div>21%</td><td><div class="ty"><div class="c3" style="width:54%"></div></div>54%</td><td><div class="ty"><div class="c4" style="width:4%"></div></div>4%</td></tr><tr onclick="addToBasket('A-67','SelectAlim','SData(67,1)')">
+																								<td><span id="A-67">Veau - Rôti</span></td><td>portion 150g</td><td><div class="ty"><div class="c1" style="width:13%"></div></div>13%</td><td><div class="ty"><div class="c2" style="width:39%"></div></div>39%</td><td><div class="ty"><div class="c3" style="width:25%"></div></div>25%</td><td>-</td>
+																							</tr><tr onclick="addToBasket('A-479','SelectAlim','SData(479,1)')"><td><span id="A-479">Viande des Grisons</span></td><td>tranche 8g</td><td><div class="ty"><div class="c1" style="width:1%">
+																							</div></div>1%</td><td><div class="ty"><div class="c2" style="width:4%"></div>
+																							</div>4%</td><td><div class="ty"><div class="c3" style="width:1%"></div></div>1%</td>
+																								<td>-</td></tr></tbody></table></div></div><div class="resize" onmousedown="Resize(event)"></div></div>
+</div>
+<span id="SelectAlim"></span>
+<h2 id="VotreMenu">Votre menu</h2>
+<span id="MenuGraf"></span>
+<span id="MenuNote"></span>
+<span id="MenuTab"><div id="no-aliment-menu">Il n'y a pas d'aliment dans votre menu.</div></span>
+<span id="MenuOrderLink"></span>
+<span id="MenuFooter"></span>
+<script type="text/javascript">
+TabCalDisp(1,0,0,0,1,1);
+var Menu = new Array();
+cookie_menu = getCook('ck_menu');
+if (cookie_menu) Menu = cookie_menu.split(',');
+MenuDisp();
+</script><p id="miseengarde">Les données fournies par <a href="https://www.calories.fr">Calories.fr</a> peuvent contenir des imprécisions ou inexactitudes. Elles ne peuvent en aucun cas se substituer à un avis ou traitement médical.</p><div class="ad-body">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6247533633281518" data-ad-slot="7914611668" data-ad-format="auto" data-full-width-responsive="true"><iframe id="aswift_0" __idm_frm__="44" style="height: 1px !important; max-height: 1px !important; max-width: 1px !important; width: 1px !important;"><iframe id="google_ads_frame0" __idm_frm__="45"></iframe></iframe></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<div class="title-footer">Nos calculatrices</div>
+<p class="lk-footer"><a href="https://www.imc.fr" target="_blank"><i class="fas fa-analytics fa-fw imc"></i>Calcul et suivie de l'IMC enfant et adulte</a></p>
+<p class="lk-footer"><a href="https://www.poidsideal.com" target="_blank"><i class="fas fa-weight fa-fw poidsideal"></i>Calculez votre poids idéal</a></p>
+<p class="lk-footer"><a href="https://www.dateaccouchement.com" target="_blank"><i class="fas fa-calendar-alt fa-fw accouchement"></i>Calculez votre date d'accouchement</a></p>
+<div class="title-footer">Partagez-nous !</div>
+<div class="share_buttons" data-shareurl="https://www.calories.fr">
+<i class="fas fa-envelope-square" onclick="Share(this,0)"></i>
+<i class="fab fa-facebook-square" onclick="Share(this,1)"></i>
+<i class="fab fa-twitter-square" onclick="Share(this,2)"></i>
+<i class="fab fa-linkedin" onclick="Share(this,3)"></i>
+</div></div>
+</body>
+</html>
